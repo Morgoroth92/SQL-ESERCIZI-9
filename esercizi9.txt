@@ -1,0 +1,54 @@
+CREATE TABLE Customers (
+    CUSTOMER_ID INT NOT NULL AUTO_INCREMENT,
+    FIRST_NAME VARCHAR(255) NOT NULL,
+    LAST_NAME VARCHAR(255) NOT NULL,
+    EMAIL_ADDRESS VARCHAR(255) NOT NULL,
+    PRIMARY KEY (CUSTOMER_ID)
+);
+
+INSERT INTO Customers (FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+VALUES ('Pino', 'Caria', 'longdog99@gmail.com'),
+       ('Laura', 'Rossi', 'lau.paxerella@hotmail.it'),
+       ('Alice', 'Giannotti', 'alice.giannotti@tiscali.it');
+
+UPDATE Customers 
+SET EMAIL_ADDRESS = 'pino.caria@gmail.com' 
+WHERE CUSTOMER_ID = 1;
+
+DELETE FROM Customers 
+WHERE CUSTOMER_ID = 2;
+
+TRUNCATE TABLE Customers;
+
+
+CREATE TABLE Customers (
+ customer_id INT NOT NULL AUTO_INCREMENT,
+ first_name VARCHAR(255) NOT NULL,
+ last_name VARCHAR(255) NOT NULL,
+ email VARCHAR(255) NOT NULL,
+ PRIMARY KEY (customer_id)
+);
+
+
+CREATE TABLE Products (
+  product_id INT NOT NULL AUTO_INCREMENT,
+  product_name VARCHAR(255) NOT NULL,
+  product_description VARCHAR(255) NOT NULL,
+  product_price DECIMAL(10, 2) NOT NULL,
+  product_quantity INT NOT NULL,
+  PRIMARY KEY (product_id)
+);
+
+CREATE TABLE Orders (
+ order_id INT NOT NULL AUTO_INCREMENT,
+ customer_id INT NOT NULL,
+ expected_arrival_time DATE,
+ PRIMARY KEY(order_id)
+);
+
+CREATE TABLE Product_Orders (
+ order_id INT NOT NULL AUTO_INCREMENT,
+ product_name VARCHAR(255) NOT NULL,
+ total_revenue DOUBLE
+ PRIMARY KEY (order_id)
+);
